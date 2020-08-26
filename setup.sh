@@ -9,12 +9,12 @@ function installBrew() {
 
 # HOMEBREW CHECK:
 
- checks for hombrew on host machine
-if [ !$(which brew) ] ; then
- echo "installing homebrew on your system...."
- echo "trust me you will thank me later..."
- installBrew
-fi 
+#  checks for hombrew on host machine
+# if [ !$(which brew) ] ; then
+#  echo "installing homebrew on your system...."
+#  echo "trust me you will thank me later..."
+#  installBrew
+# fi 
 
 
 # SPECIFIED COURSE DEPENDENCIES:
