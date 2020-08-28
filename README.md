@@ -1,5 +1,4 @@
 ## Web Enterprise Systems
-<<<<<<< HEAD
 
 holds all the codes
 
