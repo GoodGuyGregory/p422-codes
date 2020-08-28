@@ -56,16 +56,16 @@ case "$ANSWER" in [yY] | [yY][eE][sS])
     ;;
 esac
 
-for cask in $CASKS
+for cask in "${CASKS[@]}"
     do
         echo "installing $cask"
-        # brew cask install "$CASKS"
+        brew cask install "$cask"
     done
 
 for formulae in $FORMULAE
     do
     echo "installing $formulae"
-        # brew install "$formulae"
+        brew install "$formulae"
     done
 
 #  INSTALLING MONGODB
