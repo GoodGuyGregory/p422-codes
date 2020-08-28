@@ -1,6 +1,6 @@
 ## Web Enterprise Systems
 
-holds all the codes
+---
 
 **Development Machine Setup for P422**
 
@@ -9,6 +9,6 @@ to run the file `./setup.sh`
 
  enjoy your development computer for P422
 
-=======
+---  
 
 
