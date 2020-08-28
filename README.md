@@ -2,7 +2,7 @@
 
 ---
 
-**Development Machine Setup for P422**
+**Development Setup for P422**
 
 Make Shell Scripts Executable with a `chmod +x setup.sh`
 to run the file `./setup.sh`
