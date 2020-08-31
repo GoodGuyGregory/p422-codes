@@ -47,3 +47,30 @@ console.log(typeof obj );
 
 //  should display a number
 console.log(typeof num2);
+
+//  Quiz Function:
+function doThing(y) {
+    var x = "hello";
+    if (y < 0) {
+        var x = "world";
+        console.log(x);
+    }
+    console.log(x);
+}
+doThing(-1);
+
+var o = {
+    pi: 3.14159,
+    add: function (x, y) {
+        return x + y;
+    },
+    times2: function times2(x) {
+        return x * 2;
+    },
+    circumference: function (r) {
+        return function () {
+            return this.times2(this.pi * r);
+        }();
+    }
+};
+console.log(o.circumference(3))
