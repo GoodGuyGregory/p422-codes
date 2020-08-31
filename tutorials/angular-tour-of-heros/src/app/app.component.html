@@ -1,5 +1,8 @@
 <h1>{{title}}</h1>
-<!--  Adds the new Heros component to the app component shell -->
-<app-heroes></app-heroes>
+<nav>
+    <a routerLink="/heroes">Heroes</a>
+</nav>
+<!-- removes heros component because it will only be displayed when the route is active -->
+<router-outlet></router-outlet>
 <!-- display the message content from messages component -->
 <app-messages></app-messages>
