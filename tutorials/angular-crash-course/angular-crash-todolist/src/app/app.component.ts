@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-crash-todolist';
+  // title = 'angular-crash-todolist';
+
+  // name: string = 'Greg';
+
+  // //  runs when the component is created Oninit
+  // constructor() {
+  //   this.changeName('Jon');
+  // }
+
+  // changeName(name: string) {
+  //     this.name = name;
+  // }
 }
