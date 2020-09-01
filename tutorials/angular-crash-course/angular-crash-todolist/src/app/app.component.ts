@@ -18,4 +18,6 @@ export class AppComponent {
   // changeName(name: string) {
   //     this.name = name;
   // }
+
+  
 }
