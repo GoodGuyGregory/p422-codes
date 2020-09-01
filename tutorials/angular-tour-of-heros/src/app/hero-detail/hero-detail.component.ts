@@ -21,9 +21,21 @@ export class HeroDetailComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
+    this.getHero();
   }
 //  recieves a hero object from the imported hero component
-
   @Input() hero: Hero;
 
+  getHero(): void {
+    //  gets the hero id from the router
+    // '+' converts the string returned to a number for retrieval
+    const id = +this.route.snapshot.paramMap.get('id');
+    //  passes the id into the heroService to retrieve that hero 
+    this.heroService.getHeroes(id)
+      .subscribe(hero => this.hero = hero);
+  }
+
+  goBack(): void {
+    this.location.back();
+  }
 }
