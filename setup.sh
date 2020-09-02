@@ -72,6 +72,7 @@ for formulae in $FORMULAE
 echo "installing mongodb"
 brew tap mongodb/brew
 brew install mongodb-community
+brew services start mongodb/brew/mongodb-community
 
 # INSTALLING ANGULAR:
 echo "installing angular-cli"
