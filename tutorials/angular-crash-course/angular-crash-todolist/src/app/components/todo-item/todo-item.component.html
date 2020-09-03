@@ -1,3 +1,9 @@
-<p>
-    {{todo.title}}
-</p>
+<!-- All components must have contents wrapped in a single div tag -->
+<!--  [ngClass] allows for dynamic class renaming -->
+<div [ngClass]="setClasses()">
+    <p>
+        <input type="checkbox" />
+        {{todo.title}}
+        <button class="del">x</button>
+    </p>
+</div>
