@@ -2,8 +2,9 @@
 <!--  [ngClass] allows for dynamic class renaming -->
 <div [ngClass]="setClasses()">
     <p>
-        <input type="checkbox" />
+        <!--  adds an event to the input -->
+        <input (change)="onToggle(todo)" type="checkbox" />
         {{todo.title}}
-        <button class="del">x</button>
+        <button (click)="onDelete(todo)" class="del">x</button>
     </p>
 </div>

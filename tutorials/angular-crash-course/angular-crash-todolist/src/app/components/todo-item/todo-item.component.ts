@@ -28,4 +28,14 @@ export class TodoItemComponent implements OnInit {
     return classes;
   }
 
+  onToggle(todo) {
+    // console.log('toggle');
+    // sets the todo to the opposite of what it was
+    todo.completed = !todo.completed;
+  }
+
+  onDelete(todo) {
+    console.log('delete');
+  }
+
 }
