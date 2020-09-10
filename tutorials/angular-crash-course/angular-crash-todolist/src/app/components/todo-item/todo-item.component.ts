@@ -1,5 +1,6 @@
 // adds input because we are passing the todos in from another component
 import { Component, OnInit, Input } from '@angular/core';
+import { TodoService } from '../../service/todo.service';
 import { Todo } from 'src/app/models/Todo';
 
 @Component({
@@ -11,7 +12,10 @@ export class TodoItemComponent implements OnInit {
   //  Input Properties will take anything passed to the component
   @Input() todo: Todo;
 
-  constructor() { }
+  // inject the todoservice
+  constructor(private todoService: TodoService) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -31,7 +35,12 @@ export class TodoItemComponent implements OnInit {
   onToggle(todo) {
     // console.log('toggle');
     // sets the todo to the opposite of what it was
+    // Toggle in UI
     todo.completed = !todo.completed;
+    // Toggle on server
+    this.todoService.toggleCompleted(todo).subscribe(todo => {
+      console.log(todo);
+    });
   }
 
   onDelete(todo) {
