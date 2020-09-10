@@ -1,31 +1,20 @@
 //  allows for constructor injection into other components
 import { Injectable } from '@angular/core';
+import { HttpClientModule, HttpHeaders, HttpClient } from '@angular/common/http';
+import { Todo } from '../models/Todo';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
+  todosUrl: string = 'https://jsonplaceholder.typicode.com/todos';
+  todosLimit = '?_limit=10';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   // HARD CODED TEST DATA:
-  getTodos() {
-    return [
-      {
-        id: 1,
-        title: 'First Todo',
-        completed: false
-      },
-      {
-        id: 2,
-        title: 'Second Todo',
-        completed: true
-      },
-      {
-        id: 3,
-        title: 'Third Todo',
-        completed: false
-      },
-    ]
+  getTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
   }
 }

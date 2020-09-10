@@ -24,7 +24,9 @@ export class TodosComponent implements OnInit {
     // ]
 
     //  gets all of the todos from the injectable service provider
-    this.todos = this.todoService.getTodos();
+    this.todoService.getTodos().subscribe(todos => {
+      this.todos = todos;
+    });
 
   }
 
