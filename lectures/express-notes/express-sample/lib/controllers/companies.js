@@ -67,9 +67,10 @@ module.exports = {
         let employeeName = req.params.employeeName;
         let body = req.body;
 
-        console.log(companyName);
-        console.log(employeeName);
-        console.log(body);
+        // TEST CONNECTION CODE:
+        // console.log(companyName);
+        // console.log(employeeName);
+        // console.log(body);
 
         if (body['name'] !== employeeName) {
             res.status(400);
