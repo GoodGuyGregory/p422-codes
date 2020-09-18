@@ -1,4 +1,3 @@
-const { Router } = require('express');
 let express = require('express');
 let companies = require('./controllers/companies');
 

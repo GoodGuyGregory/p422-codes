@@ -47,8 +47,9 @@ module.exports = {
 
         // must handle failures:
         if (!data.employees.hasOwnProperty(companyName)) {
-            res.send(404);
-            res.data('company not found');
+            res.sendStatus(404);
+            res.json('company not found');
+            return
         }
 
         for (let e of data.employees[companyName]) {
@@ -58,14 +59,56 @@ module.exports = {
             }
         }
 
-        res.send(404);
-        res.data('employee not found');
+        res.sendStatus(404);
+        res.json('employee not found');
     },
     createEmployee: (req, res) => {
+        let companyName = req.params.companyName;
+        let employeeName = req.params.employeeName;
+        let body = req.body;
 
+        if (body['name'] !== employeeName) {
+            res.status(400);
+            res.json({ error: "name does not match request employee name" });
+            return;
+        }
+
+        if (!body['job']) {
+            res.status(400);
+            res.json({ error: "employee job not specified" });
+            return;
+        }
+
+        if (!data.employees.hasOwnProperty(companyName)) {
+            res.status(404);
+            res.json('company not found');
+            return;
+        }
+
+        data.employees[companyName] = data.employees[companyName].filter(value => { return value.name !== employeeName; });
+
+        data.employees[companyName].push(body);
+        res.sendStatus(204);
     },
     removeEmployee: (req, res) => {
+        let companyName = req.params.companyName;
+        let employeeName = req.params.employeeName;
 
+        //  DEMO:
+        // let a = [1, 2, 3];
+        // filters all elements through that are not 1
+        // a.filter((value => { value !== 1; }))
+
+        if (!data.employees.hasOwnProperty(companyName)) {
+            res.sendStatus(404);
+            res.json('company not found');
+            return
+        }
+
+        // makes a new array such as in the DEMO 
+        data.employees[companyName] = data.employees[companyName].filter((value => { return value.name !== employeeName; }));
+
+        res.sendStatus(204);
     },
 }
 
