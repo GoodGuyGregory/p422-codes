@@ -35,7 +35,6 @@ let aboutObject = {
 
 aboutPage = {
     numberTwo: (req, res) => {
-
         res.json(aboutObject);
         return;
     }
@@ -43,10 +42,14 @@ aboutPage = {
 
 // 1. SERVE INDEX.HTML's CONTENTS
 routes.get('/', indexPage.numberOne);
+
 // 2. SERVE JSON RESPONSE WITH REQUIRED INFO
 routes.get('/about', aboutPage.numberTwo);
 
-// }
+// 3. ACCEPT HTTP GET REQUEST FOR /PASSWORD/GENERATE/:LENGTH
+// RETURN A RANDOM PASSWORD OF SIZE LENGTH
+
+
 
 let port = 8080;
 
