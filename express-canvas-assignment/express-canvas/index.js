@@ -5,19 +5,16 @@ let fileSystem = require('fs');
 //  sets Routes
 let routes = express.Router();
 
-
-// function appConfiguration() {
 //  Working Dir Configuration:
 let main = './html/index.html';
 
 var app = express();
 
-//  Testing Config
+//  TESTING CONFIGURATION
 // app.get('/', (req, res) => {
 //     res.send('Hello from Express!');
 // });
 
-// appConfiguration();
 indexPage = {
     // 1. Serve an index.html file located in an 'html' directory for /
     numberOne: (req, res) => {
@@ -30,7 +27,24 @@ indexPage = {
     },
 }
 
+let aboutObject = {
+    name: "Greg Witt",
+    email: "goodguygregory@gmail.com",
+    musician: "Khurangbin"
+}
+
+aboutPage = {
+    numberTwo: (req, res) => {
+
+        res.json(aboutObject);
+        return;
+    }
+}
+
+// 1. SERVE INDEX.HTML's CONTENTS
 routes.get('/', indexPage.numberOne);
+// 2. SERVE JSON RESPONSE WITH REQUIRED INFO
+routes.get('/about', aboutPage.numberTwo);
 
 // }
 
