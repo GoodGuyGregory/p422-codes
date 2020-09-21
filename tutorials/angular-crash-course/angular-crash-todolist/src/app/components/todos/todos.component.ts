@@ -30,4 +30,15 @@ export class TodosComponent implements OnInit {
 
   }
 
+  // deleteTodo will grab the Todo that needs to be deleted and recieve the event object
+  deleteTodo(todo: Todo) {
+    // Test component
+    // console.log('delete me');
+
+    // Delete from the UI
+    this.todos = this.todos.filter(t => t.id !== todo.id);
+    // Delete from the server
+    this.todoService.deleteTodo(todo).subscribe();
+  }
+
 }

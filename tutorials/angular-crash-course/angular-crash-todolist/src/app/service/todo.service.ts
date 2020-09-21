@@ -5,6 +5,7 @@ import { HttpClientModule, HttpHeaders, HttpClient } from '@angular/common/http'
 import { Todo } from '../models/Todo';
 import { Observable } from 'rxjs';
 
+//  Sets header elements
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -23,6 +24,12 @@ export class TodoService {
   //  GET todos
   getTodos(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`${this.todosUrl}${this.todosLimit}`);
+  }
+
+  // DELETE todos 
+  deleteTodo(todo: Todo): Observable<Todo> {
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.delete<Todo>(url, httpOptions);
   }
 
   toggleCompleted(todo: Todo): Observable<any> {

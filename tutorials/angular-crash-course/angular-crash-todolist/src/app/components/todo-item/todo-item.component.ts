@@ -1,5 +1,5 @@
 // adds input because we are passing the todos in from another component
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { TodoService } from '../../service/todo.service';
 import { Todo } from 'src/app/models/Todo';
 
@@ -11,6 +11,9 @@ import { Todo } from 'src/app/models/Todo';
 export class TodoItemComponent implements OnInit {
   //  Input Properties will take anything passed to the component
   @Input() todo: Todo;
+  //  emitting from the component to the parent component
+  //  deleteTodo will be delt with in the parent component and passed the todo that needs deletion
+  @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
 
   // inject the todoservice
   constructor(private todoService: TodoService) {
@@ -44,7 +47,8 @@ export class TodoItemComponent implements OnInit {
   }
 
   onDelete(todo) {
-    console.log('delete');
+    // Emitt an event up to the parent component that it is needing to be deleted
+    this.deleteTodo.emit(todo);
   }
 
 }

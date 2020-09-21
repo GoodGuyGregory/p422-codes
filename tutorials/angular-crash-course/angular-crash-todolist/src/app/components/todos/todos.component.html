@@ -1,4 +1,4 @@
 <h1>Todos</h1>
 <!--  Loop through the todos -->
-<app-todo-item *ngFor='let todo of todos' [todo]="todo">
+<app-todo-item *ngFor='let todo of todos' [todo]="todo" (deleteTodo)="deleteTodo($event)">
 </app-todo-item>
