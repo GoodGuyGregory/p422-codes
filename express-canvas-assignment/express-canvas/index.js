@@ -85,10 +85,10 @@ passwords = {
 
         }
 
-        res.status(204);
         console.table(body);
-
-        res.json();
+        res.json({
+            "validity": `${validity}`
+        });
         return;
     }
 }
@@ -124,5 +124,3 @@ app.use(bodyParser.json());
 app.listen(port, function () {
     console.log("Listening on http://%s", port);
 });
-
-
