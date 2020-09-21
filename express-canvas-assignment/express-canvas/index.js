@@ -1,6 +1,7 @@
 // IMPORTS:
 let express = require('express');
 let fileSystem = require('fs');
+let bodyParser = require('body-parser');
 
 //  sets Routes
 let routes = express.Router();
@@ -66,6 +67,9 @@ passwords = {
         res.sendStatus(404);
         res.send('specific length not found');
         return;
+    },
+    checkPassword: (req, res) => {
+
     }
 }
 
@@ -82,11 +86,20 @@ routes.get('/about', aboutPage.numberTwo);
 // RETURN A RANDOM PASSWORD OF SIZE LENGTH
 routes.get('/password/generate/:length', passwords.generateLength);
 
+// 4. VERIFIES THAT A PASSWORD IS:
+// *  8 CHARS
+// *  CONTAINS NUMBERS AND LETTERS
+// RETURNS JSON WITH A "VALID" KEY OF TRUE OR FALSE
+routes.put('/password', password.checkPassword);
+
 
 let port = 8080;
 
-//  sets port
+//  sets routes
 app.use('/', routes);
+
+// adds body parser
+app.use(bodyParser.json());
 
 app.listen(port, function () {
     console.log("Listening on http://%s", port);
