@@ -47,13 +47,11 @@ let aboutPage = {
 passwords = {
     generateLength: (req, res) => {
         let desiredlength = req.params.length;
-
         // generate password:
         let generatedPassword = '';
         let passChars = 'abcdefghijklmnopqrstuvwxyz' + '0123456789';
         // Checks if there is a parameter in the request
         if (desiredlength) {
-
             for (let i = 0; i <= desiredlength; i++) {
                 let passCharIndex = Math.floor(Math.random() * passChars.length + 1);
                 generatedPassword += passChars.charAt(passCharIndex);
@@ -61,19 +59,39 @@ passwords = {
             }
             res.send(generatedPassword);
             return;
-
         }
-
         res.sendStatus(404);
         res.send('specific length not found');
         return;
     },
     checkPassword: (req, res) => {
+        let body = req.body;
+        let validity = false;
 
+        //  check for password
+        if (!body['password']) {
+            res.status(411);
+            res.json({ error: "Need password for POST" });
+            return;
+        }
+
+        if (body['password'].length >= 8) {
+            console.log("password is greater than 8");
+            let numberREGEX = /\d+/;
+            if (numberREGEX.test(body['password'])) {
+                console.log("password also contains numbers")
+                validity = true;
+            }
+
+        }
+
+        res.status(204);
+        console.table(body);
+
+        res.json();
+        return;
     }
 }
-
-
 
 
 // 1. SERVE INDEX.HTML's CONTENTS
@@ -90,7 +108,9 @@ routes.get('/password/generate/:length', passwords.generateLength);
 // *  8 CHARS
 // *  CONTAINS NUMBERS AND LETTERS
 // RETURNS JSON WITH A "VALID" KEY OF TRUE OR FALSE
-routes.put('/password', password.checkPassword);
+let jsonParser = bodyParser.json();
+
+routes.post('/password', jsonParser, passwords.checkPassword);
 
 
 let port = 8080;
