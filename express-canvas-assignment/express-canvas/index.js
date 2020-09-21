@@ -38,12 +38,14 @@ let aboutObject = {
 
 let aboutPage = {
     numberTwo: (req, res) => {
-        res.json(aboutObject);
-        return;
+        if (aboutObject) {
+            res.json(aboutObject);
+            return;
+        }
     }
 }
 
-// Components for # 3 
+// Components for # 3 and # 4
 passwords = {
     generateLength: (req, res) => {
         let desiredlength = req.params.length;
@@ -51,7 +53,7 @@ passwords = {
         let generatedPassword = '';
         let passChars = 'abcdefghijklmnopqrstuvwxyz' + '0123456789';
         // Checks if there is a parameter in the request
-        if (desiredlength) {
+        if (typeof desiredlength === 'number') {
             for (let i = 0; i <= desiredlength; i++) {
                 let passCharIndex = Math.floor(Math.random() * passChars.length + 1);
                 generatedPassword += passChars.charAt(passCharIndex);
@@ -60,8 +62,8 @@ passwords = {
             res.send(generatedPassword);
             return;
         }
-        res.sendStatus(404);
-        res.send('specific length not found');
+        res.status(400);
+        res.send("ERROR: parameter for :length must be a number");
         return;
     },
     checkPassword: (req, res) => {
