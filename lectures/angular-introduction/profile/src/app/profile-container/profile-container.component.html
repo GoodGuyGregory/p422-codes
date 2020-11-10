@@ -1,7 +1,15 @@
 <div>
     <h2>Profiles</h2>
     <ul>
-        <li *ngFor="let profile of profiles">{{profile.name}}</li>
+        <li *ngFor="let profile of profiles">
+            <a (click)="onSelect(profile)" href="#">{{profile.name}}</a></li>
     </ul>
 
+    <!-- use ngIF to display the selected profile only if there is a selected profile -->
+    <div *ngIf="selectedProfile">
+        <p>Selected Profile: {{selectedProfile.name}}</p>
+    </div>
+    <div *ngIf="!selectedProfile">
+        <p>no profile selected</p>
+    </div>
 </div>

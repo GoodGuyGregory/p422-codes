@@ -18,4 +18,14 @@ export class ProfileContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSelect(profile: Profile): void {
+    if (this.selectedProfile && this.selectedProfile.name === profile.name) {
+      // sets the profile name to null which causes the boolean to not be true
+      this.selectedProfile = null;
+      return;
+    }
+    this.selectedProfile = profile;
+    console.log(`Selected Profile: ${this.selectedProfile.name}`);
+  }
+
 }
