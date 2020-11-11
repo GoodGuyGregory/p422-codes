@@ -1,11 +1,19 @@
 <div>
     <h2>Profiles</h2>
-    <ul>
-        <li *ngFor="let profile of profiles">
-            <a (click)="onSelect(profile)" href="#">{{profile.name}}</a></li>
-    </ul>
+    <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="selectedProfile">
+        <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" [value]="1"> Left (pre-checked)
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" value="middle"> Middle
+        </label>
+        <label ngbButtonLabel class="btn-primary">
+            <input ngbButton type="radio" [value]="false"> Right
+        </label>
+    </div>
+    <hr>
+    <pre>{{model}}</pre>
 
-    <!-- use ngIF to display the selected profile only if there is a selected profile -->
     <div *ngIf="selectedProfile">
         <!--  render the profile component -->
         <app-profile [profile]="selectedProfile"></app-profile>

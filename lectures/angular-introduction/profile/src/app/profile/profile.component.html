@@ -11,10 +11,10 @@
             <th>Email: </th>
         </tr>
         <tr *ngFor="let info of profile.contactinfo">
-            <td>{{info.type}}</td>
+            <td><b>{{info.type}}</b></td>
             <td>{{info.phone}}</td>
             <td>{{info.address}}</td>
-            <td>{{info.email}}</td>
+            <td><a href="mailto:{{info.email">{{info.email}}</a></td>
         </tr>
     </table>
 </div>

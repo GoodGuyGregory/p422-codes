@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 // import all the profile data into the component:
 import { PROFILES } from '../data/profiles';
 import { Profile } from '../models/profile';
@@ -12,6 +12,7 @@ import { Profile } from '../models/profile';
 export class ProfileContainerComponent implements OnInit {
   profiles = PROFILES;
   selectedProfile: Profile;
+  model = 1;
 
   constructor() { }
 
