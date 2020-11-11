@@ -1,1 +1,20 @@
-<p>profile works!</p>
+<div>
+    <!--  because input decorator allows for profiles to be sent to this component we're able to access them -->
+    <p>Name: {{profile.name}}</p>
+    <p>Age: {{profile.age}}</p>
+    <p>Contact Info:</p>
+    <table>
+        <tr>
+            <th>Type: </th>
+            <th>Phone: </th>
+            <th>Address: </th>
+            <th>Email: </th>
+        </tr>
+        <tr *ngFor="let info of profile.contactinfo">
+            <td>{{info.type}}</td>
+            <td>{{info.phone}}</td>
+            <td>{{info.address}}</td>
+            <td>{{info.email}}</td>
+        </tr>
+    </table>
+</div>

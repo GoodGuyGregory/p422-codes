@@ -7,7 +7,8 @@
 
     <!-- use ngIF to display the selected profile only if there is a selected profile -->
     <div *ngIf="selectedProfile">
-        <p>Selected Profile: {{selectedProfile.name}}</p>
+        <!--  render the profile component -->
+        <app-profile [profile]="selectedProfile"></app-profile>
     </div>
     <div *ngIf="!selectedProfile">
         <p>no profile selected</p>
