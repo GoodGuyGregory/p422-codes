@@ -1,14 +1,8 @@
 <div>
     <h2>Profiles</h2>
     <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="selectedProfile">
-        <label ngbButtonLabel class="btn-primary">
-            <input ngbButton type="radio" [value]="1"> Left (pre-checked)
-        </label>
-        <label ngbButtonLabel class="btn-primary">
-            <input ngbButton type="radio" value="middle"> Middle
-        </label>
-        <label ngbButtonLabel class="btn-primary">
-            <input ngbButton type="radio" [value]="false"> Right
+        <label ngbButtonLabel class="btn-primary" *ngFor="let profile of profiles">
+            <input ngbButton type="radio" [value]="profile"> {{profile.name}}
         </label>
     </div>
     <hr>

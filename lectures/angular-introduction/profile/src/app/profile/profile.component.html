@@ -3,13 +3,15 @@
     <p>Name: {{profile.name}}</p>
     <p>Age: {{profile.age}}</p>
     <p>Contact Info:</p>
-    <table>
-        <tr>
-            <th>Type: </th>
-            <th>Phone: </th>
-            <th>Address: </th>
-            <th>Email: </th>
-        </tr>
+    <table class="table table-stripped">
+        <thead class="thead-light">
+            <tr>
+                <th>Type: </th>
+                <th>Phone: </th>
+                <th>Address: </th>
+                <th>Email: </th>
+            </tr>
+        </thead>
         <tr *ngFor="let info of profile.contactinfo">
             <td><b>{{info.type}}</b></td>
             <td>{{info.phone}}</td>
