@@ -14,6 +14,11 @@ export class ProfileContainerComponent implements OnInit {
   selectedProfile: Profile;
   model = 1;
 
+  // two-way data binding example
+  clearSelection(): void {
+    this.selectedProfile = null;
+  }
+
   constructor() { }
 
   ngOnInit(): void {

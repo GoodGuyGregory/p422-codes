@@ -11,6 +11,9 @@ export class ProfileComponent implements OnInit {
   // adds input decorator to allow Profiles to be passed to this component 
   @Input() profile: Profile;
 
+  poke(): void {
+    this.profile.poked += 1;
+  }
   constructor() { }
 
   ngOnInit(): void {

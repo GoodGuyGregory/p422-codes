@@ -1,7 +1,9 @@
 <div>
     <h2>Profiles</h2>
+
+
     <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="selectedProfile">
-        <label ngbButtonLabel class="btn-primary" *ngFor="let profile of profiles">
+        <label ngbButtonLabel class="btn-primary" *ngFor="let profile of profiles" [class.admin]="profile.isAdmin">
             <input ngbButton type="radio" [value]="profile"> {{profile.name}}
         </label>
     </div>
@@ -15,4 +17,6 @@
     <div *ngIf="!selectedProfile">
         <p>no profile selected</p>
     </div>
+    <button type="button" class="btn btn-outline-primary" (click)="clearSelection()">clear</button>
+
 </div>
