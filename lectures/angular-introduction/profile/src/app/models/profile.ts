@@ -1,9 +1,10 @@
-import { ContactInfo } from './contactinfo';
 
 export class Profile {
     name: string;
     age: number;
-    contactinfo: ContactInfo[];
     isAdmin: boolean;
+    phone: string;
+    address: string;
+    email: string;
     poked: number;
 }

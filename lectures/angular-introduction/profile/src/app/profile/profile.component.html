@@ -4,25 +4,23 @@
     <p>Age: {{profile.age}}</p>
     <p>Contact Info:</p>
     <table class="table table-stripped">
-        <thead class="thead-light">
-            <tr>
-                <th>Type: </th>
-                <th>Phone: </th>
-                <th>Address: </th>
-                <th>Email: </th>
-            </tr>
-        </thead>
-        <tr *ngFor="let info of profile.contactinfo">
-            <td><b>{{info.type}}</b></td>
-            <td>{{info.phone}}</td>
-            <td>{{info.address}}</td>
-            <td><a href="mailto:{{info.email">{{info.email}}</a></td>
+        <tr>
+            <td>Phone:</td>
+            <td>{{profile.phone}}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td>{{profile.address}}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><a href="mailto:{{profile.email">{{profile.email}}</a></td>
         </tr>
     </table>
     <p>Poked: {{profile.poked}}</p>
 
     <div>
-        <button type=" button" class=" btn btn-primary" (click)="poke(profile)">Poke</button>
+        <button type=" button" class=" btn btn-primary" (click)="poke()">Poke</button>
 </div>
 
 </div>
