@@ -12,7 +12,8 @@
 
     <div *ngIf="selectedProfile">
         <!--  render the profile component -->
-        <app-profile [profile]="selectedProfile"></app-profile>
+        <app-profile-display [profile]="selectedProfile">
+        </app-profile-display>
     </div>
     <div *ngIf="!selectedProfile">
         <p>no profile selected</p>

@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Profile } from '../models/profile';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-profile-display',
+  templateUrl: './profile-display.component.html',
+  styleUrls: ['./profile-display.component.scss']
 })
 export class ProfileComponent implements OnInit {
 

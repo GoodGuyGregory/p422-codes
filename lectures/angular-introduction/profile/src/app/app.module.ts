@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileContainerComponent } from './profile-container/profile-container.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile-display/profile-display.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
