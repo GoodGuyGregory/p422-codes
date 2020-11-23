@@ -16,7 +16,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ProfileModule
+    ProfileModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
