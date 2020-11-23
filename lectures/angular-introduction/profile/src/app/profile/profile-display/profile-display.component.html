@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="!editing">
     <!--  because input decorator allows for profiles to be sent to this component we're able to access them -->
     <p>Name: {{profile.name}}</p>
     <p>Age: {{profile.age}}</p>
@@ -17,11 +17,16 @@
             <td><a href="mailto:{{profile.email">{{profile.email}}</a></td>
         </tr>
     </table>
-    <p>Poked: {{profile.poked}}</p>
-
-    <div>
-        <button type=" button" class=" btn btn-primary" (click)="poke()">Poke</button>
-                    <button type=" button" class=" btn btn-secondary" (click)="edit()">Edit</button>
 </div>
 
+<div *ngIf=" editing">
+                    <!-- because this component specifically has an output we can access the event emitted -->
+                    <app-profile-editor [profile]="profile" (finishedEditing)="edit()"></app-profile-editor>
+</div>
+
+<p>Poked: {{profile.poked}}</p>
+
+<div>
+    <button type=" button" class=" btn btn-primary" (click)="poke()">Poke</button>
+    <button type=" button" class=" btn btn-secondary" (click)="edit()" *ngIf="!editing">Edit</button>
 </div>

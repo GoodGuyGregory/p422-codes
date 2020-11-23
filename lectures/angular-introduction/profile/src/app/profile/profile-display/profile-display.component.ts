@@ -11,13 +11,17 @@ export class ProfileDisplayComponent implements OnInit {
   // adds input decorator to allow Profiles to be passed to this component 
   @Input() profile: Profile;
 
+  public editing = false;
+
   poke(): void {
     this.profile.poked += 1;
   }
 
   edit(): void {
-
+    // flips content to display editing component
+    this.editing = !this.editing;
   }
+
   constructor() { }
 
   ngOnInit(): void {
