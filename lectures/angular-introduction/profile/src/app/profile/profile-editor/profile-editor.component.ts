@@ -47,4 +47,9 @@ export class ProfileEditorComponent implements OnInit {
       email: this.profile.email,
     })
   }
+
+  cancel(): void {
+    this.reset();
+    this.finishedEditing.emit(true);
+  }
 }

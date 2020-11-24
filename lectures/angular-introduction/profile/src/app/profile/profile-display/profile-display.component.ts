@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Profile } from '../../models/profile';
 
 @Component({
@@ -6,7 +6,7 @@ import { Profile } from '../../models/profile';
   templateUrl: './profile-display.component.html',
   styleUrls: ['./profile-display.component.scss']
 })
-export class ProfileDisplayComponent implements OnInit {
+export class ProfileDisplayComponent implements OnInit, OnChanges {
 
   // adds input decorator to allow Profiles to be passed to this component 
   @Input() profile: Profile;
@@ -25,6 +25,10 @@ export class ProfileDisplayComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges() {
+    this.editing = false;
   }
 
 }
