@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SyllabusComponent } from './app/components/syllabus/syllabus.component';
+import { SyllabusComponent } from './components/syllabus/syllabus.component';
 import { AssignmentsComponent } from './components/assignments/assignments.component';
 import { AssignmentDetailComponent } from './components/assignment-detail/assignment-detail.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
