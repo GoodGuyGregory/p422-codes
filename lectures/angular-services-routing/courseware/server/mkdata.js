@@ -30,14 +30,14 @@ const c311 = new Class({
   calendar: [
     '1: Functional Programming with F#',
     '2: Really, learn some F#',
-    '3: ???',
-    '4: PROFIT!'
+    '3: Destroy them Financially',
+    '4: Avoiding Contraction of Corona Virus'
   ],
   bookInfo: 'No book',
   meetingTime: 'Tu/Th 13:00-15:00'
 });
 
-mongoose.connect('mongodb://localhost:27017/courseware', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/courseware', { useNewUrlParser: true, useUnifiedTopology: true });
 
 p422.save().catch(err => console.error(err)).then(() => { console.log('saved p422') });
 c311.save().catch(err => console.error(err)).then(() => { console.log('saved c311') });
