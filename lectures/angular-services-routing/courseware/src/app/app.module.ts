@@ -8,6 +8,7 @@ import { SyllabusComponent } from './components/syllabus/syllabus.component';
 import { AssignmentsComponent } from './components/assignments/assignments.component';
 import { AssignmentDetailComponent } from './components/assignment-detail/assignment-detail.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SyllabusComponent,
     AssignmentsComponent,
     AssignmentDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CatalogComponent
   ],
   imports: [
     BrowserModule,
