@@ -1,1 +1,29 @@
-<p>syllabus works!</p>
+<div class="container">
+    <h1>{{selectedCourse.section}} {{selectedCourse.title}}</h1>
+
+    <div class="container">
+        <h4><span>Description:</span> {{selectedCourse.description}}</h4>
+    </div>
+    <div class="container">
+        <p><span>Book Info:</span> {{selectedCourse.bookInfo}}</p>
+    </div>
+    <div class="container">
+        <p><span>Meeting Time:</span> {{selectedCourse.meetingTime}}</p>
+    </div>
+    <div class="table container">
+        <p><span>Calendar:</span></p>
+        <table>
+            <tr *ngFor="let day of selectedCourse.calendar">
+                <td>{{day}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="table container">
+        <p><span>Grading Scale:</span></p>
+        <table>
+            <tr *ngFor="let scale of selectedCourse.gradingScale">
+                <td>{{scale}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

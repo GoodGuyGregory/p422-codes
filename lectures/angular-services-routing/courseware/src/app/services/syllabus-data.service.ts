@@ -13,8 +13,9 @@ export class Course {
 @Injectable({
   providedIn: 'root'
 })
+
 export class SyllabusDataService {
-  private courses: Course[] = {
+  private courses: Course[] = [{
     section: 'P422',
     title: 'Web Enterprise Systems',
     description: 'Client/Server web technologies',
@@ -30,12 +31,12 @@ export class SyllabusDataService {
     ],
     bookInfo: 'Node.js, Mongo, and Angular Web Development',
     meetingTime: 'Tu/Th 10:00-12:00'
-  }
+  }];
 
   constructor() { }
 
   public getCourse(name: string): Course {
-    const res = this.courses.find(c => c.section.toLowerCase() === name);
+    const res = this.courses.find(c => c.section.toLowerCase() === name.toLowerCase());
     if (!res) {
       return null;
     }

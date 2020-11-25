@@ -1,0 +1,13 @@
+.container h1 {
+    margin: 25px;
+    font-size: 3em;
+}
+
+.container {
+    padding-left: 50px;
+}
+
+.container span {
+    color: crimson;
+    font-weight: 500;
+}
