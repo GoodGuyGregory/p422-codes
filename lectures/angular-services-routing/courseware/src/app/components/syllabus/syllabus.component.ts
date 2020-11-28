@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course, SyllabusDataService } from 'src/app/services/syllabus-data.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-syllabus',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SyllabusComponent implements OnInit {
   selectedCourseName: string;
-  selectedCourse: Course;
+  selectedCourse: Observable<Course>;
 
   // injects service into the constructor
   constructor(private syllabusDataService: SyllabusDataService, private router: Router) {

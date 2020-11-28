@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export class Course {
   section: string
@@ -15,31 +17,16 @@ export class Course {
 })
 
 export class SyllabusDataService {
-  private courses: Course[] = [{
-    section: 'P422',
-    title: 'Web Enterprise Systems',
-    description: 'Client/Server web technologies',
-    gradingScale: [
-      '90-100: A',
-      '0-89: F',
-    ],
-    calendar: [
-      '1: NodeJS',
-      '2: Angular',
-      '3: Prototype',
-      '4: Proficiency'
-    ],
-    bookInfo: 'Node.js, Mongo, and Angular Web Development',
-    meetingTime: 'Tu/Th 10:00-12:00'
-  }];
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  constructor() { }
 
-  public getCourse(name: string): Course {
-    const res = this.courses.find(c => c.section.toLowerCase() === name.toLowerCase());
-    if (!res) {
-      return null;
-    }
-    return res;
+  // service url for getting course
+  private url = '/v1/classes'
+
+  public getCourse(name: string): Observable<Course> {
+    // base url with the additional asset 
+    return this.http.get<Course>(`${this.url}/${name}`);
   }
 }

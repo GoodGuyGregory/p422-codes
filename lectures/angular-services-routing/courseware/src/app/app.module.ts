@@ -9,6 +9,7 @@ import { AssignmentsComponent } from './components/assignments/assignments.compo
 import { AssignmentDetailComponent } from './components/assignment-detail/assignment-detail.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CatalogComponent } from './components/catalog/catalog.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
