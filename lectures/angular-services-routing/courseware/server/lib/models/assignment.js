@@ -3,18 +3,26 @@ const mongoose = require('mongoose');
 const AssignmentSchema = mongoose.Schema({
   section: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   description: String,
-  rubric: [String]
+  rubric: [String],
+  questions: [String]
 });
 
-AssignmentSchema.query.bySection = function(name) {
-  return this.where({section: name});
+AssignmentSchema.query.bySection = function (name) {
+  return this.where({ section: name });
 }
 
-const Assignment = mongoose.model('Class', AssignmentSchema);
+
+AssignmentSchema.query.bySectionAndName = function (section, name) {
+  return this.where({ section: section, name: name });
+}
+
+const Assignment = mongoose.model('Assignment', AssignmentSchema);
 
 module.exports = Assignment;
