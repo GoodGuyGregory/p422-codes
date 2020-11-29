@@ -1,1 +1,7 @@
-<p>catalog works!</p>
+<div class="container">
+    <h2>Classes</h2>
+    <ul *ngFor="let name of (courseNames | async)">
+        <!--  binds to the param from the router link from the app.routing file -->
+        <li><a [routerLink]="['/syllabus', name]">{{name}}</a></li>
+    </ul>
+</div>

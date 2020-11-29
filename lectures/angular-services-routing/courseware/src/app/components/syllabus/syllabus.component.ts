@@ -3,6 +3,7 @@ import { Course, SyllabusDataService } from 'src/app/services/syllabus-data.serv
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-syllabus',
@@ -17,7 +18,8 @@ export class SyllabusComponent implements OnInit {
   constructor(
     private syllabusDataService: SyllabusDataService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -37,4 +39,7 @@ export class SyllabusComponent implements OnInit {
     }
   }
 
+  public goBack(): void {
+    this.location.back();
+  }
 }

@@ -29,4 +29,9 @@ export class SyllabusDataService {
     // base url with the additional asset 
     return this.http.get<Course>(`${this.url}/${name}`);
   }
+
+  public getCourseNames(): Observable<string[]> {
+    //  v1/classes
+    return this.http.get<string[]>(this.url);
+  }
 }
