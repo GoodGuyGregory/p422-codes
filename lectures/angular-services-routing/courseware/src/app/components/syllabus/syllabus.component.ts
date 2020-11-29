@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course, SyllabusDataService } from 'src/app/services/syllabus-data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-syllabus',
@@ -13,12 +14,19 @@ export class SyllabusComponent implements OnInit {
   selectedCourse: Observable<Course>;
 
   // injects service into the constructor
-  constructor(private syllabusDataService: SyllabusDataService, private router: Router) {
-
-  }
+  constructor(
+    private syllabusDataService: SyllabusDataService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    this.selectCourse('P422');
+    // set selected course from params 
+    this.selectedCourse = this.route.paramMap.pipe(
+      switchMap((params: ParamMap): Observable<Course> => {
+        return this.syllabusDataService.getCourse(params.get('class'));
+      })
+    );
   }
 
   public selectCourse(name: string): void {
