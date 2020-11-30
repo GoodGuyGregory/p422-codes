@@ -26,6 +26,8 @@ export class SyllabusComponent implements OnInit {
     // set selected course from params 
     this.selectedCourse = this.route.paramMap.pipe(
       switchMap((params: ParamMap): Observable<Course> => {
+        //  gets selected course name for the routerlink on assignments
+        this.selectedCourseName = params.get('class');
         return this.syllabusDataService.getCourse(params.get('class'));
       })
     );
@@ -42,4 +44,5 @@ export class SyllabusComponent implements OnInit {
   public goBack(): void {
     this.location.back();
   }
+
 }

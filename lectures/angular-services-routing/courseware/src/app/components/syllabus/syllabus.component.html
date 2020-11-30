@@ -33,6 +33,6 @@
 </div>
 
 <div class="container">
-    <button ngbButton class="btn btn-primary" (click)="goToAssignments()">Assignments</button>&nbsp;
+    <a [routerLink]="['/assignment', selectedCourseName]" class="btn btn-primary">Assignments</a>&nbsp;
     <button ngbButton class="btn btn-secondary" (click)="goBack()">Go Back</button>
 </div>

@@ -1,1 +1,35 @@
-<p>assignment-detail works!</p>
+<div class="container">
+    <div class="container">
+        <h1>{{(assignment|async)?.section}} {{(assignment|async)?.name}}: {{(assignment|async)?.description}} </h1>
+
+        <h3>Rubric</h3>
+        <ul>
+            <li *ngFor="let r of (assignment|async)?.rubric">
+                {{r}}
+            </li>
+        </ul>
+
+
+        <h2>Questions:</h2>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="model">
+            <!-- <ol>
+                <li *ngFor="let q of (assignment|async)?.questions">
+                    {{q}}
+                </li>
+            </ol> -->
+            <div class="email">
+                <label>Email: <input type="text" formControlName="email"></label>
+            </div>
+
+            <ol>
+                <li formGroupName="answers" *ngFor="let answer of answerControls|async; let i=index">
+                    <p>{{answer.question}}</p>
+                    <label> Answer: <input type="text" [formControlName]="i"></label>
+                </li>
+            </ol>
+            <button type="submit" class="btn btn-primary" [disabled]="!model.valid || !model.dirty">Submit</button>
+            <div *ngIf="status" [class.alert-danger]="statusError" class="alert">{{status}}</div>
+        </form>
+    </div>
+</div>

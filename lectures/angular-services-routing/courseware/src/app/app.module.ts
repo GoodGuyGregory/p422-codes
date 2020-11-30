@@ -10,6 +10,7 @@ import { AssignmentDetailComponent } from './components/assignment-detail/assign
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CatalogComponent } from './components/catalog/catalog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
