@@ -1,1 +1,8 @@
-<p>assignments works!</p>
+<div class="container">
+    <h1>{{courseTitle | async }} Assignments</h1>
+    <ol>
+        <li *ngFor="let assignment of (assignments | async)">
+            <a [routerLink]="[assignment.name]">{{assignment.name}}: {{assignment.description}}</a>
+        </li>
+    </ol>
+</div>

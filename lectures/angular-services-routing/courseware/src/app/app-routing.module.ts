@@ -9,8 +9,8 @@ import { SyllabusComponent } from './components/syllabus/syllabus.component';
 const routes: Routes = [
   { path: 'catalog', component: CatalogComponent },
   { path: 'syllabus/:class', component: SyllabusComponent },
-  { path: 'assignments', component: AssignmentsComponent },
-  { path: 'assignments/:class/:name', component: AssignmentDetailComponent },
+  { path: 'assignment/:class', component: AssignmentsComponent },
+  { path: 'assignment/:class/:name', component: AssignmentDetailComponent },
   { path: '', redirectTo: '/catalog', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];
