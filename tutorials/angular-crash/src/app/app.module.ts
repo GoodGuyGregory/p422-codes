@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { MaterialModule } from './material/material.module';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { MaterialModule } from './material/material.module';
     HeaderComponent,
     ButtonComponent,
     TasksComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    AddTaskComponent
   ],
 
   imports: [
@@ -25,6 +28,7 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
+    FormsModule,
     MaterialModule
   ],
   providers: [],
